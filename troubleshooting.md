@@ -4,9 +4,22 @@ This document give some tricks if an issue occurs on Accor CI.
 
 ![Apps CI-Accor](/assets/ci-net.jpg "Basic network architecture")
 
-# 1.1 Network topology
+# 1.1 Servers lists
+
+Accor network :
+
+| Name | Private IP | DNS 
+------ | ---------- | ---
+| jenkins-master | 10.21.10.248 | jenkins.ci-accor.io
+| ios-slave-01 (mac Pro) | 10.21.10.249 | ios-slave-01.ci-accor.io
+
+On Azure :
 
 
+| Name | Private IP | DNS 
+------ | ---------- | ---
+| app-ci-vm-01 | 10.0.0.5 | jenkins.ci-accor.io
+| app-ci-timeseriedb | 10.0.0.4 | db.ci-accor.io
 
 # 2. Access
 
@@ -28,7 +41,7 @@ Android slave :
 ssh accor-admin@android-slave-01.ci-accor.io
 ```
 
-There is an IP restriction, all of these machines can only be accessed from Sequana.
+An IP restriction is set, only machines from Sequana can reach them.
 
 # 3. Issues
 
@@ -54,7 +67,7 @@ host jenkins.ci-accor.io
 docker ps
 ```
 
-If not, since your home directory, you can copy paste on your terminal:
+If not, since your home directory, restart Jenkins :
 
 ```bash
 cd CI/stack_cicd
@@ -66,21 +79,23 @@ These commands will relaunch the entire stack.
 
 ## 3.2 No build on iOS
 
-The iOS build is made by the Mac Pro.
+iOS build are made by the Mac Pro on internal network.
 
 Solutions :
 
-1. Check if the Mac Pro is up (yes sometimes there is some electricity outage)
+1. Check if the Mac Pro is up (sometimes there is sometimes power cut)
 2. Check on Jenkins Master if the iOS slave is well connected :
-    * On Manage Jenkins > Node 
-    * Check the logs
+    * On `Manage Jenkins` > `Manage Nodes`
+    
+![Apps CI-Accor](/assets/connected2.png "Basic network architecture")
   
-
 ## 3.3 No build on Androïd
 
-The Androïd builder is hosted by a docker container on `android-slave-01.ci-acccor.io`. The Jenkins master is connected on it with dedicated port (SSH/9000).
+The Androïd builder is hosted by a docker container on `android-slave-01.ci-acccor.io`. The Jenkins master is connected on it with dedicated port (SSH/9000). 
 
-If the container or/and the machine is down : [^1] No ping ? No SSH ? Most of the time, the issue occurs because there is too much I/O operation and the charge is too high.
+The integration tests need to access to REC environments on the Accor internal network. That's why a local Androïd builder is running on the Mac Pro.
+
+If the container or/and the machine is down : [^1] No ping ? No SSH ? Most of the time, the issue occurs because there is too much I/O operations during the build.
 
 Solutions :
 
@@ -102,13 +117,13 @@ https://portal.azure.com/
 
 * Click on `All Ressources` > `app-ci-vm-01`
 
-![Apps CI-Accor](/assets/azure-reboot.png "Basic network architecture")
+![Apps CI-Accor](/assets/azure-reboot.png "Restart VM")
 
 * Click on restart and grab a coffee
 
 1. Check if the container is up (you have to be root):
 
-On `android-slave-01.ci-accori.io` :
+On `android-slave-01.ci-accor.io` :
 
 ```bash
 sudo su -
@@ -121,3 +136,5 @@ CONTAINER ID        IMAGE                                      COMMAND          
 ```
 
 2. Check on Jenkins master is the agent is well connected.
+
+![Apps CI-Accor](/assets/connected.png "Agent connected")
