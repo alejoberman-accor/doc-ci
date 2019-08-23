@@ -141,7 +141,7 @@ ping android-slave-01.ci-accor.io
 ssh android-slave-01.ci-accor.io
 ```
 
-If not, go on (you have to authenticate with Weboo on your smartphone to access the portal) :
+If not, go on (you have to authenticate with InWebo on your smartphone to access the portal) :
 
 https://portal.azure.com/
 
