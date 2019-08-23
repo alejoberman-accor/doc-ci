@@ -21,7 +21,13 @@ On Azure :
 | app-ci-vm-01 | 10.0.0.5 | android-slave-01.ci-accor.io
 | app-ci-timeseriedb | 10.0.0.4 | db.ci-accor.io
 
-# 1.2 Monitoring
+# 1.2 Credentials
+
+All credentials are stored in Vault :
+
+https://vault.ci-accor.io
+
+# 1.3 Monitoring
 
 System dashboards :
 
@@ -33,13 +39,7 @@ https://db.ci-accor.io/chronograf/sources/1/hosts
 
 # 2. Access
 
-# 2.1 Credentials
-
-All credentials are stored in Vault :
-
-https://vault.ci-accor.io
-
-# 2.2 SSH
+# 2.1 SSH
 
 Jenkins master (this machine is on internal Accor network) : 
 
@@ -61,7 +61,7 @@ ssh accor-admin@android-slave-01.ci-accor.io
 
 An IP restriction is set, only machines from Sequana can reach them.
 
-# 2.1 Web
+# 2.2 Services
 
 Jenkins : http://jenkins.ci-accor.io
 
