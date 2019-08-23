@@ -27,6 +27,14 @@ https://db.ci-accor.io/chronograf/sources/1/hosts
 
 # 2. Access
 
+# 2.1 Credentials
+
+All credentials are stored in Vault :
+
+https://vault.ci-accor.io
+
+# 2.1 SSH
+
 Jenkins master (this machine is on internal Accor network) : 
 
 ```bash
@@ -47,8 +55,15 @@ ssh accor-admin@android-slave-01.ci-accor.io
 
 An IP restriction is set, only machines from Sequana can reach them.
 
+# 2.1 Web
 
+Jenkins : http://jenkins.ci-accor.io
 
+Grafana : https://dashboards.ci-accor.io
+
+InfluxDB : https://db.ci-accor.io
+
+Chronograf : https://db.ci-accor.io/chronograf
 
 # 3. Issues
 
@@ -100,7 +115,8 @@ Solutions :
 
 The Androïd builder is hosted by a docker container on `android-slave-01.ci-acccor.io`. The Jenkins master is connected on it with dedicated port (SSH/9000). 
 
-The integration tests need to access to REC environments on the Accor internal network. That's why a local Androïd builder is running on the Mac Pro.
+The integration tests need to
+ access to REC environments on the Accor internal network. That's why a local Androïd builder is running on the Mac Pro.
 
 If the container or/and the machine is down
 Most of the time, the issue occurs because there is too much I/O operations during the build.
