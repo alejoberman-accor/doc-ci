@@ -18,7 +18,7 @@ On Azure :
 
 | Name | Private IP | DNS 
 ------ | ---------- | ---
-| app-ci-vm-01 | 10.0.0.5 | jenkins.ci-accor.io
+| app-ci-vm-01 | 10.0.0.5 | android-slave-01.ci-accor.io
 | app-ci-timeseriedb | 10.0.0.4 | db.ci-accor.io
 
 Servers status :
