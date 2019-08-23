@@ -59,11 +59,11 @@ An IP restriction is set, only machines from Sequana can reach them.
 
 Jenkins : http://jenkins.ci-accor.io
 
-Grafana : https://dashboards.ci-accor.io
+Grafana : https://dashboard.ci-accor.io
 
 InfluxDB : https://db.ci-accor.io
 
-Chronograf : https://db.ci-accor.io/chronograf
+Chronograf : https://db.ci-accor.io/chronograf/
 
 # 3. Issues
 
