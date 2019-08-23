@@ -100,7 +100,7 @@ If not, since your home directory, restart Jenkins :
 ```bash
 cd CI/stack_cicd
 docker-compose -f jenkins.yml down -v
-docker-compose -f jenkins up -d
+docker-compose -f jenkins.yml up -d
 ```
 
 These commands will relaunch the entire stack.
