@@ -21,6 +21,12 @@ On Azure :
 | app-ci-vm-01 | 10.0.0.5 | android-slave-01.ci-accor.io
 | app-ci-timeseriedb | 10.0.0.4 | db.ci-accor.io
 
+# 1.2 Monitoring
+
+System dashboards :
+
+https://db.ci-accor.io/chronograf/sources/1/dashboards
+
 Servers status :
 
 https://db.ci-accor.io/chronograf/sources/1/hosts
@@ -33,7 +39,7 @@ All credentials are stored in Vault :
 
 https://vault.ci-accor.io
 
-# 2.1 SSH
+# 2.2 SSH
 
 Jenkins master (this machine is on internal Accor network) : 
 
