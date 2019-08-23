@@ -6,7 +6,7 @@ This document give some tricks if an issue occurs on Accor CI.
 
 # 1.1 Servers lists
 
-Accor network :
+On Accor network :
 
 | Name | Private IP | DNS 
 ------ | ---------- | ---
@@ -20,6 +20,10 @@ On Azure :
 ------ | ---------- | ---
 | app-ci-vm-01 | 10.0.0.5 | jenkins.ci-accor.io
 | app-ci-timeseriedb | 10.0.0.4 | db.ci-accor.io
+
+Servers status :
+
+https://db.ci-accor.io/chronograf/sources/1/hosts
 
 # 2. Access
 
@@ -42,6 +46,9 @@ ssh accor-admin@android-slave-01.ci-accor.io
 ```
 
 An IP restriction is set, only machines from Sequana can reach them.
+
+
+
 
 # 3. Issues
 
@@ -95,7 +102,8 @@ The Androïd builder is hosted by a docker container on `android-slave-01.ci-acc
 
 The integration tests need to access to REC environments on the Accor internal network. That's why a local Androïd builder is running on the Mac Pro.
 
-If the container or/and the machine is down : [^1] No ping ? No SSH ? Most of the time, the issue occurs because there is too much I/O operations during the build.
+If the container or/and the machine is down
+Most of the time, the issue occurs because there is too much I/O operations during the build.
 
 Solutions :
 
@@ -135,6 +143,6 @@ CONTAINER ID        IMAGE                                      COMMAND          
 53771418c269        appsregistryaccor.azurecr.io/android       "setup-sshd"             2 weeks ago         Up 20 hours         0.0.0.0:9000->22/tcp
 ```
 
-2. Check on Jenkins master is the agent is well connected.
+2. Check on web jenkins interface is the agent is well connected.
 
 ![Apps CI-Accor](/assets/connected.png "Agent connected")
