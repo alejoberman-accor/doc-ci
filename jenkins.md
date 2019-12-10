@@ -15,7 +15,7 @@ FROM jenkins/jenkins:2.193-jdk11
 ...
 ```
 
-Increment the image number according to Jenkins repository. Commit and push.
+Increment the image number according to the Jenkins repository. Commit and push.
 
 Go to http://jenkins.ci-accor.io/job/Container%20Factory/. Launch the job.
 
