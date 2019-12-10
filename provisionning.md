@@ -1,37 +1,43 @@
-# 1 Provisionning
+# Provisionning
 
-Provisionning on Accor CI/CD plateform is managed by Ansible. 
+Configuration management on Accor CI/CD plateform is managed by Ansible.
 
-# 2 Ansible
+## Requirements
 
-Ansible is an open-source software provisioning, configuration management, and application-deployment tool.[s its own declarative language to describe system configuration.
+* Ansible installed
+* VPN well configured
+* Your SSH key have to be deployed
 
-Ansible is agentless, temporarily connecting remotely via SSH or remote PowerShell to do its tasks.
+## Ansible
 
-# 3 Installation
+Ansible is an open-source software provisioning, configuration management, and application-deployment tool.
 
-On MacOS with Brew
+## Installation
+
+On MacOS with pip
 
 ```bash
-brew install ansible
+pip install ansible
 ```
 
 On Linux
 
-```
+```bash
 apt-get install ansible
 ```
 
-```
+```bash
 yum install ansible
 ```
 
-# 4 Provisionning
+Deploy your SSH key and configure the VPN.
 
+## Playbook
 
-Since root Ansible repository : 
+The plateform is quite simple and a single playbook is enough :
+
+Since root Ansible repository, to configure all the VM on Azure, launch:
 
 ```bash
-ansible-playbook -i inventory playbook.yml
+ansible-playbook -i inventory/priv-inventory playbook.yml
 ```
-
