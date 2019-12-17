@@ -6,14 +6,14 @@ Accor CI/CD use it to store DevOPS KPI measurements like code coverage, checksty
 
 ## 1. Architecture
 
+![Apps CI-Accor](/assets/tick.jpg "CI/CD data architecture")
+
 Telgraf is an agent, it collects system metrics like memory usage, and send it to InfluxDB for storing them.
 
 Grafana is the GUI for analysis and datav visualization.
 
-KPI-CLI is an ETL, it collects data on Jenkins API and application performance, in order to
+[KPI-CLI](04-kpi-cli.md) is an ETL, it collects data on Jenkins API and application performance, in order to
 monitor the application KPI.
-
-![Apps CI-Accor](/assets/tick.jpg "Basic network architecture")
 
 ### 1.2 Services
 
@@ -111,23 +111,29 @@ https://db.ci-accor.io/chronograf
 
 Accor CI/CD use it to monitor the differents virtual machines and their services.
 
-#### 1.2.3 Telegraf
+#### 1.2.3 Grafana
+
+#### 1.2.4 Telegraf
 
 Telegraf is an agent which runs on every CI/CD machine. It collects metrics about application and system to monitor the services.
 
-# 2. Administration
+# 2. Networking
 
+Traefik is used as a reverse proxy in front of Docker engine :
 
+![Apps CI-Accor](/assets/data_net.jpg "CI/CD data architecture")
 
-## 2.1 Restart the TICK stack
+# 3. Administration
 
-On `db.ci-accor.io` :
+## 3.1 Restart TICK stack
+
+On `db.ci-accor.io` as `accor-admin` user :
 
 ```bash
 service influxdb restart
 ```
 
-## 2.2 Update Influxdb
+## 3.2 Update Influxdb
 
 ```bash
 service influxdb pull
