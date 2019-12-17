@@ -123,17 +123,28 @@ Traefik is used as a reverse proxy in front of Docker engine :
 
 ![Apps CI-Accor](/assets/data_net.jpg "CI/CD data architecture")
 
-# 3. Administration
+## 3. Administration
 
-## 3.1 Restart TICK stack
+On `db.ci-accor.io` as `accor-admin` user.
 
-On `db.ci-accor.io` as `accor-admin` user :
+### 3.1 InfluxDB
+
+
+
+### 3.1.1 InfluxDB CLI
+
+```bash
+docker-sh influxdb
+influx
+```
+
+#### 3.1.2 Restart TICK stack
 
 ```bash
 service influxdb restart
 ```
 
-## 3.2 Update Influxdb
+#### 3.1.3 Update Influxdb
 
 ```bash
 service influxdb pull
