@@ -11,7 +11,7 @@ https://github.com/AccorECOM/jenkins_docker.git
 Edit `dockerfiles/jenkins.dockerfile` :
 
 ```bash
-FROM jenkins/jenkins:2.193-jdk11
+FROM jenkins/jenkins:2.XXX-jdk11
 ...
 ```
 
@@ -30,3 +30,5 @@ docker pull appsregistryaccor.azurecr.io/jenkins
 docker-compose -f jenkins.yml down -v
 docker-compose -f jenkins.yml up -d
 ```
+
+a4bb4c680d91ee4a633f75e13cf7837dace244da

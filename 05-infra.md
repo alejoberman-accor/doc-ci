@@ -22,12 +22,14 @@ Each Azure VM expose these ports and run its own reverse proxy (Traefik):
 
 ## Manage services
 
-Use the alias `service`:
+On each VM you can use the alias `service`:
 
 Show available services:
 
 ```bash
-service ls
+# accor-admin @ app-ci-vm-01 in ~
+$ service ls
+android-slave  mock  traefik
 ```
 
 Show running services:
@@ -36,31 +38,10 @@ Show running services:
 docker ps
 ```
 
-Start a service:
+Start android slave service:
 
 ```bash
-service service_name start
+service android-slave start
 ```
 
-It's a wrapper of the `docker-compose` command.
-
-## 1. Network architecture
-
-![Apps CI-Accor](/assets/ci-net.jpg "Basic network architecture")
-
-* Servers lists:
-
-On Accor network :
-
-| Name | Private IP | DNS 
------- | ---------- | ---
-| ios-slave-01 (mac Pro) | 10.21.10.249 (vpn: 10.2.0.2) | ios-slave-01.ci-accor.io
-
-On Azure :
-
-
-| Name | Private IP | DNS 
------- | ---------- | ---
-| app-ci-vm-01 | 10.0.0.5 | android-slave-01.ci-accor.io
-| app-ci-vm-02 | 10.0.0.6 | jenkins.ci-accor.io
-| app-ci-timeseriedb | 10.0.0.4 | db.ci-accor.io
+It's a wrapper of the `docker-compose` command so all other commands are available.
