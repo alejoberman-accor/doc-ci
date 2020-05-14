@@ -10,7 +10,7 @@ On Accor network :
 
 | Name | Private IP | DNS
 ------ | ---------- | ---
-| ios-slave-01 (mac Pro) | 10.21.10.249 (vpn: 10.2.0.2) | ios-slave-01.ci-accor.io
+| ios-slave-01 (mac Pro) | 10.21.10.249 (vpn: 10.2.0.3) | ios-slave-01.ci-accor.io
 
 On Azure :
 
